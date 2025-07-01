@@ -9,25 +9,26 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.newbee.ble_lib.manager.image.BitmapQualityType;
 import com.newbee.t800_data.R;
 import com.newbee.t800_lib.manager.T800SendManager;
-import com.newbee.t800_lib.type.T800BitmapQualityType;
+
 import com.newbee.t800_lib.util.BleByteUtil;
 import com.newbee.t800_lib.util.T800SendUtil;
 
 public class MainActivity extends AppCompatActivity {
-    private T800SendManager.Listen t800SendManagerListen=new T800SendManager.Listen() {
-        @Override
-        public void nowSendCmd(byte[] bytes) {
-            String ss=BleByteUtil.parseByte2HexStr(bytes);
-            tv.setText(ss);
-        }
-
-        @Override
-        public void sendImage(Bitmap bitmap, T800BitmapQualityType qualityType) {
-            tv.setText("处理图片:"+(bitmap==null)+"处理图片质量"+(qualityType==null));
-        }
-    };
+//    private T800SendManager.Listen t800SendManagerListen=new T800SendManager.Listen() {
+//        @Override
+//        public void nowSendCmd(byte[] bytes) {
+//            String ss=BleByteUtil.parseByte2HexStr(bytes);
+//            tv.setText(ss);
+//        }
+//
+//        @Override
+//        public void sendImage(Bitmap bitmap, BitmapQualityType qualityType) {
+//            tv.setText("处理图片:"+(bitmap==null)+"处理图片质量"+(qualityType==null));
+//        }
+//    };
     private TextView tv;
     private Button cmdBT,imageBT;
     private View.OnClickListener onClickListener=new View.OnClickListener() {
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         imageBT=findViewById(R.id.bt_image);
         cmdBT.setOnClickListener(onClickListener);
         imageBT.setOnClickListener(onClickListener);
-        T800SendManager.getInstance().setListen(t800SendManagerListen);
+//        T800SendManager.getInstance().setListen(t800SendManagerListen);
 
     }
 }

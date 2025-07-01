@@ -3,13 +3,14 @@ package com.newbee.t800_lib.util;
 import android.graphics.Bitmap;
 
 
+import com.newbee.ble_lib.manager.image.BitmapQualityType;
 import com.newbee.t800_lib.manager.T800SendManager;
 import com.newbee.t800_lib.type.T800LaneType;
 import com.newbee.t800_lib.type.T800StatuType;
 
 import com.newbee.t800_lib.bean.T800LaneCountBean;
 import com.newbee.t800_lib.bean.T800LaneHiPassCountBean;
-import com.newbee.t800_lib.type.T800BitmapQualityType;
+
 import com.newbee.t800_lib.type.T800BrightnessType;
 import com.newbee.t800_lib.type.T800CmdType;
 import com.newbee.t800_lib.type.T800GpsType;
@@ -155,16 +156,8 @@ public class T800SendUtil {
 
 
 
-    public static void sendImageLow(Bitmap bitmap){
-        T800SendManager.getInstance().sendBitmap(bitmap, T800BitmapQualityType.LOW);
-    }
-
-    public static void sendImageDef(Bitmap bitmap){
-        T800SendManager.getInstance().sendBitmap(bitmap, T800BitmapQualityType.DEF);
-    }
-
-    public static void sendImageHight(Bitmap bitmap){
-        T800SendManager.getInstance().sendBitmap(bitmap, T800BitmapQualityType.HIGH);
+    public static void sendImage(Bitmap bitmap, BitmapQualityType qualityType){
+        T800SendManager.getInstance().sendBitmap(bitmap, qualityType);
     }
 
     public static void showImage(){
@@ -215,11 +208,7 @@ public class T800SendUtil {
         T800SendManager.getInstance().sendCmd(T800CmdType.SET_DAYLIGHTING_SHOW_STATU, T800StatuType.CLOSE);
     }
 
-    public static void sendImage(Bitmap bitmap, int qualityType){
-        T800SendManager.getInstance().sendBitmap(bitmap,T800BitmapQualityType.values()[qualityType]);
-    }
 
-    public static void sendImage(Bitmap bitmap,T800BitmapQualityType qualityType){
-        T800SendManager.getInstance().sendBitmap(bitmap,qualityType);
-    }
+
+
 }
