@@ -3,9 +3,10 @@ package com.newbee.t800_lib.manager;
 import android.graphics.Bitmap;
 
 
-import com.newbee.ble_lib.event.send.BleEventSubscriptionSubject;
-import com.newbee.ble_lib.manager.image.BitmapQualityType;
+
 import com.newbee.t800_lib.type.T800CmdType;
+import com.nrmyw.ble_event_lib.BleCmdSendListen;
+import com.nrmyw.ble_event_lib.type.BleSendBitmapQualityType;
 
 public class T800SendManager {
 
@@ -24,20 +25,32 @@ public class T800SendManager {
         return t800SendManager;
     }
 
-
+    private BleCmdSendListen sendListen;
+    public void setListen(BleCmdSendListen sendListen){
+        this.sendListen=sendListen;
+    }
 
 
     public void sendCmdByte(byte[]bytes){
-        BleEventSubscriptionSubject.getInstance().sendCmd(bytes);
+        if(null!=sendListen){
+            sendListen.nowSendCmd(bytes);
+        }
+//        BleEventSubscriptionSubject.getInstance().sendCmd(bytes);
     }
 
     public void sendCmd(T800CmdType t800CmdType,Object... objects){
         t800CmdType.useObjectSSetBody(objects);
-        BleEventSubscriptionSubject.getInstance().sendCmd(t800CmdType.getAllByte());
+//        BleEventSubscriptionSubject.getInstance().sendCmd(t800CmdType.getAllByte());
+        if(null!=sendListen){
+            sendListen.nowSendCmd(t800CmdType.getAllByte());
+        }
     }
 
-    public void sendBitmap(Bitmap bitmap, BitmapQualityType qualityType){
-        BleEventSubscriptionSubject.getInstance().sendImage(bitmap,qualityType );
+    public void sendBitmap(Bitmap bitmap, BleSendBitmapQualityType qualityType){
+//        BleEventSubscriptionSubject.getInstance().sendImage(bitmap,qualityType );
+        if(null!=sendListen){
+            sendListen.sendImage(bitmap,qualityType);
+        }
     }
 
 

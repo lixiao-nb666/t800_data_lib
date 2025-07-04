@@ -5,6 +5,7 @@ public enum T800NameType {
     destination((byte)0x01),
     location((byte)0x02),
     roadName((byte)0x03),
+    def((byte)0x04),
     ;
     byte type;
     T800NameType(byte type){

@@ -33,5 +33,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation project(path: ':t800_lib')
-    implementation 'com.github.lixiao-nb666:ble_lib:1.0.2'
+    implementation 'com.github.lixiao-nb666:ble_lib:1.0.3'
+    implementation 'com.github.lixiao-nb666:build_lib:1.1.4'
+    implementation 'com.github.lixiao-nb666:ble_event:1.0.0'
 }

@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     T800SendUtil.sendTime();
                     break;
                 case R.id.bt_image:
-                    T800SendUtil.sendImage(null,null);
+//                    T800SendUtil.sendImage(null,null);
                     break;
             }
         }

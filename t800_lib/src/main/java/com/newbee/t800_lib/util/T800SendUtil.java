@@ -1,9 +1,6 @@
 package com.newbee.t800_lib.util;
 
 import android.graphics.Bitmap;
-
-
-import com.newbee.ble_lib.manager.image.BitmapQualityType;
 import com.newbee.t800_lib.manager.T800SendManager;
 import com.newbee.t800_lib.type.T800LaneType;
 import com.newbee.t800_lib.type.T800StatuType;
@@ -24,6 +21,7 @@ import com.newbee.t800_lib.type.T800SpeedShowType;
 import com.newbee.t800_lib.type.T800TimeType;
 import com.newbee.t800_lib.type.T800TurnType;
 import com.newbee.t800_lib.type.T800WarningPointType;
+import com.nrmyw.ble_event_lib.type.BleSendBitmapQualityType;
 
 
 public class T800SendUtil {
@@ -100,12 +98,12 @@ public class T800SendUtil {
         T800SendManager.getInstance().sendCmd(T800CmdType.TURN_TYPE,type1,distance1,type2,distance2);
     }
 
-    public static void sendLaneName(String laneName){
-        T800SendManager.getInstance().sendCmd(T800CmdType.LANE_NAME,laneName);
+    public static void sendNextLaneName(String laneName){
+        T800SendManager.getInstance().sendCmd(T800CmdType.Next_LANE_NAME,laneName);
     }
 
-    public static void sendName(T800NameType t800NameType,String laneName){
-        T800SendManager.getInstance().sendCmd(T800CmdType.NAME,t800NameType,laneName);
+    public static void sendNowLaneStr(T800NameType t800NameType,String laneName){
+        T800SendManager.getInstance().sendCmd(T800CmdType.NOW_LANE_STR,t800NameType,laneName);
     }
 
     public static void sendGps(T800GpsType t800GpsType){
@@ -156,7 +154,7 @@ public class T800SendUtil {
 
 
 
-    public static void sendImage(Bitmap bitmap, BitmapQualityType qualityType){
+    public static void sendImage(Bitmap bitmap, BleSendBitmapQualityType qualityType){
         T800SendManager.getInstance().sendBitmap(bitmap, qualityType);
     }
 

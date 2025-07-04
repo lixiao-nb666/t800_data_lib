@@ -258,22 +258,21 @@ public class T800CmdDataUtil {
         return bytes;
     }
 
-    public static byte[] getLaneName(Object... objects) {
+    public static byte[] getStr(Object... objects) {
         if (null == objects || objects.length < 1) {
             return null;
         }
-        String laneName= (String) objects[0];
-        byte[] laneNameBytes=laneName.getBytes(StandardCharsets.UTF_8);
-        byte[] bytes=new byte[laneNameBytes.length+1];
-        bytes[0]=(byte)(laneNameBytes.length & 0xFF);
-        for(int i=0;i<laneNameBytes.length;i++){
-            bytes[i+1]=laneNameBytes[i];
+        String str= (String) objects[0];
+        byte[] strBytes=str.getBytes(StandardCharsets.UTF_8);
+        byte[] bytes=new byte[strBytes.length+1];
+        bytes[0]=(byte)(strBytes.length & 0xFF);
+        for(int i=0;i<strBytes.length;i++){
+            bytes[i+1]=strBytes[i];
         }
-
         return bytes;
     }
 
-    public static byte[] getName(Object... objects) {
+    public static byte[] getNowLaneStr(Object... objects) {
         if (null == objects || objects.length < 2) {
             return null;
         }
