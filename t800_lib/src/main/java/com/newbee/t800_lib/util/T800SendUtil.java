@@ -61,6 +61,23 @@ public class T800SendUtil {
         T800SendManager.getInstance().sendCmd(T800CmdType.BIG_WARNING_POINT,type1,distance1);
     }
 
+    public static void sendWarningPoint1TitleStr(String str){
+        T800SendManager.getInstance().sendCmd(T800CmdType.WARNING_POINT_1_T_STR,str);
+    }
+
+    public static void sendWarningPoint1BodyStr(String str){
+        T800SendManager.getInstance().sendCmd(T800CmdType.WARNING_POINT_1_B_STR,str);
+    }
+
+    public static void sendWarningPoint2TitleStr(String str){
+        T800SendManager.getInstance().sendCmd(T800CmdType.WARNING_POINT_2_T_STR,str);
+    }
+
+    public static void sendWarningPoint2BodyStr(String str){
+        T800SendManager.getInstance().sendCmd(T800CmdType.WARNING_POINT_2_B_STR,str);
+    }
+
+
     public static void sendReachInfo(int distance	,int hours, int	minutes){
         T800SendManager.getInstance().sendCmd(T800CmdType.REACH_INFO,distance,hours,minutes);
     }
@@ -172,6 +189,10 @@ public class T800SendUtil {
 
     public static void hideYellowStatu(){
         T800SendManager.getInstance().sendCmd(T800CmdType.YELLOW_STATU, T800StatuType.CLOSE);
+    }
+
+    public static void sendYellowStatuStr(String yellowStatuStr){
+        T800SendManager.getInstance().sendCmd(T800CmdType.YELLOW_STATU_STR,yellowStatuStr);
     }
 
     public static void iconFlicherOpen(){

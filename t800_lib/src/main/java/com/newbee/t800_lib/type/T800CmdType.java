@@ -37,10 +37,10 @@ public enum T800CmdType {
     QUERY_DEVICE_SOUND_STATU((byte)0x17),//查询设备声音开关
     SET_DAYLIGHTING_SHOW_STATU((byte)0x18),//设置采光值开关
     YELLOW_STATU_STR((byte)0x60),//设置黄色状态栏的值
-    WARNING_POINT_T1_STR((byte)0x61),
-    WARNING_POINT_B1_STR((byte)0x62),
-    WARNING_POINT_T2_STR((byte)0x63),
-    WARNING_POINT_B2_STR((byte)0x64),
+    WARNING_POINT_1_T_STR((byte)0x61),
+    WARNING_POINT_1_B_STR((byte)0x62),
+    WARNING_POINT_2_T_STR((byte)0x63),
+    WARNING_POINT_2_B_STR((byte)0x64),
     ;
     private byte title;
     private byte[] body;
@@ -82,10 +82,10 @@ public enum T800CmdType {
                 break;
             case Next_LANE_NAME:
             case YELLOW_STATU_STR:
-            case WARNING_POINT_T1_STR:
-            case WARNING_POINT_B1_STR:
-            case WARNING_POINT_T2_STR:
-            case WARNING_POINT_B2_STR:
+            case WARNING_POINT_1_T_STR:
+            case WARNING_POINT_1_B_STR:
+            case WARNING_POINT_2_T_STR:
+            case WARNING_POINT_2_B_STR:
                 body=T800CmdDataUtil.getStr(objects);
                 break;
             case NOW_LANE_STR:
